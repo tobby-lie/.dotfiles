@@ -18,7 +18,6 @@ then run (while inside of a `tmux` server)
 tmux source ~/.config/tmux/tmux.conf
 ```
 then run (while inside of a `tmux` server)
-```
 `prefix` + `I`
 
 ## Npm
