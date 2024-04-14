@@ -10,3 +10,6 @@ In addition, run the `bash_init.sh` script to symlink the `.bashrc` file into th
 
 ## Tmux
 This config uses the [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm) for tmux plugins. You'll need to `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm` then run `tmux source ~/.config/tmux/tmux.conf`
+
+## Npm
+`Node.js` is required for some lsp things
