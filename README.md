@@ -34,3 +34,12 @@ sudo apt install xinit
 ```
 startx
 ```
+
+# Apps
+You will need to also run
+```
+sudo apt install firefox
+```
+```
+sudo apt install slack
+```
