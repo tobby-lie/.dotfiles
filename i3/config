@@ -5,7 +5,7 @@ set $mod Mod1
 font pango:monospace 15px
 
 # Remove borders
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 0
                           # class                 border  backgr. text    indicator child_border
 for_window [class="^.*"] client.focused          #77dd77 #285577 #ffffff #2e9ef4   #285577
 
@@ -127,3 +127,10 @@ bar {
         status_command i3status
         tray_output primary
 }
+
+# Autostart workspaces
+exec --no-startup-id i3-msg 'workspace 1; exec gnome-terminal'
+exec --no-startup-id i3-msg 'workspace 2; exec firefox'
+# TODO: Have not automated slack install yet, may need to install slack before running this config
+exec --no-startup-id i3-msg 'workspace 3; exec slack'
+exec --no-startup-id i3-msg 'workspace 1'
