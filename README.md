@@ -43,3 +43,6 @@ sudo apt install firefox
 ```
 sudo apt install slack
 ```
+```
+sudo apt install gnome-terminal
+```
