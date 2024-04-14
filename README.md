@@ -22,3 +22,15 @@ then run (while inside of a `tmux` server)
 
 ## Npm
 `Node.js` is required for some lsp things
+
+## i3
+To get started with `i3`, I just use a machine running `ubuntu-server` and run the following commands to get into `i3`
+```
+sudo apt install i3
+```
+```
+sudo apt install xinit
+```
+```
+startx
+```
