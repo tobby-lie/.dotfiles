@@ -5,6 +5,8 @@
 ## Neovim
 Clone this repo into your `~/.config` directory, when you open up `nvim`, `lazy.nvim` will automatically load the plugins. 
 
+NOTE: `ripgrep` must be installed for this config to work.
+
 ## Bash
 In addition, run the `bash_init.sh` script to symlink the `.bashrc` file into the proper path and `source` it.
 
@@ -22,3 +24,18 @@ then run (while inside of a `tmux` server)
 
 ## Npm
 `Node.js` is required for some lsp things
+
+## i3
+To get started with `i3`, I just use a machine running `ubuntu-server` and run the following commands to get into `i3`
+```
+sudo apt install i3
+```
+```
+sudo apt install xinit
+```
+```
+startx
+```
+
+# Linux distro
+fwiw, I run `fedora`
