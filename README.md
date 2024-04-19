@@ -26,7 +26,10 @@ then run (while inside of a `tmux` server)
 `prefix` + `I`
 
 ## Npm
-`Node.js` is required for some lsp things
+`Node.js` is required for some lsp things (`apt-get install npm`)
+
+## gcc
+`gcc` is required for some lsp things (`apt-get install gcc`)
 
 ## i3
 To get started with `i3`, I just use a machine running `ubuntu-server` and run the following commands to get into `i3`
