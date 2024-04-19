@@ -10,6 +10,9 @@ NOTE: `ripgrep` must be installed for this config to work.
 ## Bash
 In addition, run the `bash_init.sh` script to symlink the `.bashrc` file into the proper path and `source` it.
 
+## Terminal emulator
+[kitty](https://sw.kovidgoyal.net/kitty/)
+
 ## Tmux
 This config uses the [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm) for tmux plugins. You'll need to 
 ```
