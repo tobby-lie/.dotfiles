@@ -42,3 +42,5 @@ sudo apt install xinit
 ```
 startx
 ```
+
+* Helpful `i3` series: https://www.youtube.com/playlist?list=PL5ze0DjYv5DbCv9vNEzFmP6sU7ZmkGzcf
