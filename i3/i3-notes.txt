@@ -1,0 +1,7 @@
+- window stack mode: Mod + s
+    - flick between stacks: Mod + (up or down keys)
+- window back to tiling mode: Mod + e
+- window tab mode: Mod + w
+    - flick between tabs: Mod + (up or down keys)
+- open applications: Mod + d
+- move focused application to workspace number: Mod + Shift + (number of workspace)
