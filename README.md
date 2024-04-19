@@ -36,6 +36,3 @@ sudo apt install xinit
 ```
 startx
 ```
-
-# Linux distro
-fwiw, I run `fedora`
