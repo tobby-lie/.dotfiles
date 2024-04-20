@@ -44,3 +44,9 @@ startx
 ```
 
 * Helpful `i3` series: https://www.youtube.com/playlist?list=PL5ze0DjYv5DbCv9vNEzFmP6sU7ZmkGzcf
+
+## feh
+I use `feh` (`sudo apt install feh`) to load my wall paper in my `i3` config
+
+## picom
+I use `picom` (`sudo apt install feh`) to handle window transparency and blur
