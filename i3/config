@@ -142,11 +142,12 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 
-set $bg-color 	         #2f343f
-set $inactive-bg-color   #2f343f
-set $text-color          #f3f4f5
-set $inactive-text-color #676E7D
-set $urgent-bg-color     #E53935
+set $bg-color 	         #000000
+set $focused-ws-color    #8E8E8E
+set $inactive-bg-color   #000000
+set $text-color          #000000
+set $inactive-text-color #737373
+set $urgent-bg-color     #C30000
 
 # window colors
 #                       border              background         text                 indicator
@@ -164,7 +165,7 @@ bar {
 		background $bg-color
 	   	separator #757577
 		#                  border             background         text
-		focused_workspace  $bg-color          $bg-color          $text-color
+		focused_workspace  $focused-ws-color  $focused-ws-color  $text-color
 		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
 		urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
 	}
@@ -182,7 +183,7 @@ exec --no-startup-id i3-msg 'workspace $workspace1'
 # Force open apps in their designated workspaces
 assign [class="kitty"] $workspace1
 assign [class="firefox"] $workspace2
-assign [class="htop"] $workspace3
+assign [class="Htop"] $workspace3
 
 
 # set wallpaper 
