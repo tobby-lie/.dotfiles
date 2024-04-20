@@ -131,8 +131,7 @@ bar {
 # Autostart workspaces
 exec --no-startup-id i3-msg 'workspace 1; exec kitty'
 exec --no-startup-id i3-msg 'workspace 2; exec firefox'
-# TODO: Have not automated slack install yet, may need to install slack before running this config
-exec --no-startup-id i3-msg 'workspace 3; exec slack'
+exec --no-startup-id i3-msg 'workspace 3; exec htop'
 exec --no-startup-id i3-msg 'workspace 1'
 
 # Set wallpaper
