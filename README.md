@@ -1,5 +1,7 @@
 # .dotfiles
 
+TODO: Automate the initial install process into a .sh script
+
 # Usage
 
 ## Neovim
@@ -47,3 +49,12 @@ startx
 
 ## feh
 I use `feh` (`sudo apt install feh`) to load my wall paper in my `i3` config
+
+## fonts
+The `.fonts` folder must be copied into the system's `~/.fonts` folder
+
+## playerctl
+`playerctl` is required for `i3` config (`sudo apt install playerctl`)
+
+## xrander
+Perhaps `xrander` config in `i3` could be useful?
