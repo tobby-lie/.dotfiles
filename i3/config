@@ -160,6 +160,7 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 # finds out, if available)
 bar {
     status_command i3status
+    position top
     tray_output primary
     colors {
 		background $bg-color
