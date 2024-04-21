@@ -177,15 +177,13 @@ hide_edge_borders both
 # Autostart workspaces
 exec --no-startup-id i3-msg 'workspace $workspace1; exec kitty'
 exec --no-startup-id i3-msg 'workspace $workspace2; exec firefox'
-exec --no-startup-id i3-msg 'workspace $workspace3; exec htop'
+exec --no-startup-id i3-msg 'workspace $workspace3; exec kitty -e htop'
 
 exec --no-startup-id i3-msg 'workspace $workspace1'
 
 # Force open apps in their designated workspaces
 assign [class="kitty"] $workspace1
 assign [class="firefox"] $workspace2
-assign [class="Htop"] $workspace3
-
 
 # set wallpaper 
 exec --no-startup-id feh --bg-center ~/.config/wallpaper/wallpaper.jpg
