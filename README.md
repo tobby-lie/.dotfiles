@@ -13,6 +13,7 @@ NOTE: `ripgrep` must be installed for this config to work.
 In addition, run the `bash_init.sh` script to symlink the `.bashrc` file into the proper path and `source` it.
 
 ## Terminal emulator
+TODO: WIP -> configure kitty
 [kitty](https://sw.kovidgoyal.net/kitty/)
 
 ## Tmux
@@ -60,4 +61,5 @@ The `.fonts` folder must be copied into the system's `~/.fonts` folder
 Perhaps `xrander` config in `i3` could be useful?
 
 ## i3blocks
+TODO: WIP -> set up i3blocks
 `i3blocks` is used to customize the `i3` status block (`sudo apt install i3blocks`)
