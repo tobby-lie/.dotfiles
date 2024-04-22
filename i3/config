@@ -68,7 +68,7 @@ bindsym $mod+a focus parent
 # workspace names
 set $workspace1 "1: "
 set $workspace2 "2: "
-set $workspace2 "3: "
+set $workspace3 "3: "
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
@@ -177,7 +177,7 @@ hide_edge_borders both
 # Autostart workspaces
 exec --no-startup-id i3-msg 'workspace $workspace1; exec kitty'
 exec --no-startup-id i3-msg 'workspace $workspace2; exec firefox'
-exec --no-startup-id i3-msg 'workspace $workspace3; exec kitty -e htop'
+exec --no-startup-id i3-msg 'workspace $workspace3; exec kitty -e Htop'
 
 exec --no-startup-id i3-msg 'workspace $workspace1'
 
