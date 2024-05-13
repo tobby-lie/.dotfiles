@@ -63,3 +63,8 @@ Perhaps `xrander` config in `i3` could be useful?
 ## i3blocks
 TODO: WIP -> set up i3blocks
 `i3blocks` is used to customize the `i3` status block (`sudo apt install i3blocks`)
+
+## timedatectl
+To fix the timezone of a VM you can run
+`$ sudo timedatectl set-timezone <timezone>`
+`$ timedatectl`
