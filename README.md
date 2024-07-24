@@ -31,6 +31,9 @@ then run (while inside of a `tmux` server)
 ## Npm
 `Node.js` is required for some lsp things (`apt-get install npm`)
 
+Note: Sometimes your node may become stale, go here to get the most up to date version -- https://nodejs.org/en/download/package-manager
+    this is pertinent so that the lsp works as intended.
+
 ## gcc
 `gcc` is required for some lsp things (`apt-get install gcc`)
 

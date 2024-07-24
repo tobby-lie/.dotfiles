@@ -25,9 +25,11 @@ require('mason-lspconfig').setup({
     lsp_zero.default_setup,
   }
 })
+require 'lspconfig'.pyright.setup {}
 lsp_zero.set_sign_icons({
   error = '✘',
   warn = '▲',
   hint = '⚑',
   info = '»'
 })
+
