@@ -5,6 +5,8 @@ TODO: Automate the initial install process into a .sh script
 # Usage
 
 ## Neovim
+Install `neovim` from source: https://github.com/neovim/neovim/blob/master/INSTALL.md#install-from-source
+
 Clone this repo into your `~/.config` directory, when you open up `nvim`, `lazy.nvim` will automatically load the plugins. 
 
 NOTE: `ripgrep` must be installed for this config to work.
