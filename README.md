@@ -18,6 +18,8 @@ In addition, run the `bash_init.sh` script to symlink the `.bashrc` file into th
 TODO: WIP -> configure kitty
 [kitty](https://sw.kovidgoyal.net/kitty/)
 
+There is a minimal `/kitty/kitty.conf` and you can run `kitty -c /kitty/kitty.conf` to activate it
+
 ## Tmux
 This config uses the [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm) for tmux plugins. You'll need to 
 ```
