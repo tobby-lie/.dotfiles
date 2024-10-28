@@ -257,7 +257,7 @@ main() {
     configure_keyboard
 
     # Install Neovim
-    # install_neovim
+    install_neovim
 
     # Setup Tmux
     setup_tmux
