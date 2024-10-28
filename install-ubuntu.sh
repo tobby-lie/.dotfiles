@@ -45,6 +45,7 @@ install_dependencies() {
         "i3status"
         "xinit"
         "feh"
+        "ffmpeg"
         "htop"
         "kitty"
         "playerctl"
