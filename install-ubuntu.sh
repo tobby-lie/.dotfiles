@@ -206,6 +206,42 @@ setup_kitty() {
     kitty -c /kitty/kitty.conf
 }
 
+configure_keyboard() {
+    log_info "Configuring keyboard mappings..."
+
+    # Create .Xmodmap file
+    cat > "$HOME/.Xmodmap" << 'EOF'
+! Make Caps Lock into Escape
+clear Lock
+keycode 66 = Escape
+
+! Clear existing modifiers
+remove Control = Control_L
+remove Mod1 = Alt_L
+remove mod4 = Super_L
+
+! Remap keys
+! Left Alt becomes Left Control
+keycode 64 = Control_L
+! Left Super/Windows becomes Left Alt
+keycode 133 = Alt_L Meta_L
+! Original Left Control becomes Super/Windows
+keycode 37 = Super_L
+
+! Add modifiers back
+add Control = Control_L
+add Mod1 = Alt_L
+add Mod4 = Super_L
+EOF
+
+    # Apply immediately
+    xmodmap "$HOME/.Xmodmap"
+
+    # Add to .xinitrc if not already present
+    if ! grep -q "xmodmap.*Xmodmap" "$HOME/.xinitrc" 2>/dev/null; then
+        echo "[[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap" >> "$HOME/.xinitrc"
+    fi
+}
 
 # Main installation
 main() {
@@ -216,6 +252,9 @@ main() {
 
     # Configure clipboard
     configure_clipboard
+
+    # Configure keyboard
+    configure_keyboard
 
     # Install Neovim
     # install_neovim
