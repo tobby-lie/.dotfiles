@@ -176,7 +176,7 @@ hide_edge_borders both
 
 # Autostart workspaces
 exec --no-startup-id i3-msg 'workspace $workspace1; exec kitty'
-exec --no-startup-id i3-msg 'workspace $workspace2; exec firefox'
+exec --no-startup-id i3-msg 'workspace $workspace2; exec Firefox Web Browser'
 exec --no-startup-id i3-msg 'workspace $workspace3; exec kitty -e htop'
 
 exec --no-startup-id i3-msg 'workspace $workspace1'

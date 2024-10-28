@@ -17,3 +17,11 @@ function gpushup() {
 
 alias lock="i3lock -i ~/.config/wallpaper/wallpaper.png -c 000000"
 
+
+# CLIPBOARD CONFIG
+# Use xclip for clipboard integration
+if command -v xclip > /dev/null; then
+    alias pbcopy='xclip -selection clipboard'
+    alias pbpaste='xclip -selection clipboard -o'
+fi
+
