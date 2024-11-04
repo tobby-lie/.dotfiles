@@ -2,6 +2,9 @@
 
 TODO: Automate the initial install process into a .sh script
 
+^ I started scripting the setup process, the process is basically
+`git clone` the repo into `~/.config` then run `install-<distro>.sh`
+
 # Usage
 
 ## Neovim
