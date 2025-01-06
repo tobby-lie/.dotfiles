@@ -2,7 +2,7 @@
 export EDITOR=nvim
 
 # Aliases
-alias vim="nvim"
+alias nv="nvim ."
 alias gis="git status"
 alias gp="git pull"
 
