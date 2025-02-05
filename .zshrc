@@ -108,6 +108,7 @@ export EDITOR=nvim
 alias nv="nvim ."
 alias gis="git status"
 alias gp="git pull"
+alias cfinit="~/.config/cf/cf_init.py"
 
 function gcb() {
   git checkout -b $1

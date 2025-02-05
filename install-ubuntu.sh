@@ -274,6 +274,10 @@ main() {
     # Set timezone
     set_timezone
 
+    # Make cf init script executable
+    chmod +x cf_init.py
+
+
     log_info "Installation complete!"
     log_info "Please restart your shell to apply changes"
     log_info "Run 'tmux source ~/.config/tmux/tmux.conf' to reload tmux configuration"
