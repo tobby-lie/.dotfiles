@@ -21,8 +21,10 @@ def generate_cpp_template(filename):
         print(f"Error: File '{filename}' already exists.")
         return False
     
-    # Template content with proper indentation
+    # Template content with optimized I/O
     template = '''#include <iostream>
+#include <vector>
+#include <algorithm>
 using namespace std;
 
 void solve() {
@@ -30,6 +32,9 @@ void solve() {
 }
 
 int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    
     int t;
     cin >> t;
     while (t--)
