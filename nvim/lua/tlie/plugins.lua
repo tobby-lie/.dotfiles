@@ -21,9 +21,9 @@ return {
     {'terrortylor/nvim-comment'},
     {'rust-lang/rust.vim'},
     {
-        'mrcjkb/rustaceanvim',
-        version = '^3',
-        ft = { 'rust' },
+      'mrcjkb/rustaceanvim',
+      version = '^5', -- Recommended
+      lazy = false, -- This plugin is already lazy
     }
 }
 

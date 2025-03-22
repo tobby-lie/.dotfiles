@@ -20,7 +20,7 @@ require('mason').setup({})
 require('mason-lspconfig').setup({
   -- Replace the language servers listed here
   -- with the ones you want to install
-  ensure_installed = {'rust_analyzer', 'dockerls', 'pyright', 'sqlls', 'terraformls', 'lua_ls', 'docker_compose_language_service', 'bashls', },
+  ensure_installed = {'dockerls', 'pyright', 'sqlls', 'terraformls', 'lua_ls', 'docker_compose_language_service', 'bashls', },
   handlers = {
     lsp_zero.default_setup,
   }
