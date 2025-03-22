@@ -18,6 +18,12 @@ return {
             'L3MON4D3/LuaSnip'
         }
     },
-    {'terrortylor/nvim-comment'}
-
+    {'terrortylor/nvim-comment'},
+    {'rust-lang/rust.vim'},
+    {
+        'mrcjkb/rustaceanvim',
+        version = '^3',
+        ft = { 'rust' },
+    }
 }
+
