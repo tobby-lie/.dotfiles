@@ -6,6 +6,10 @@ alias nv="nvim ."
 alias gis="git status"
 alias gp="git pull"
 alias cfinit="~/.config/cf/cf_init.py"
+alias tn="tmux new -s"
+alias ta="tmux attach -t"
+alias tl="tmux ls"
+alias td="tmux detach"
 
 function gcb() {
   git checkout -b $1
