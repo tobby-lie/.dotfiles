@@ -78,3 +78,7 @@ TODO: WIP -> set up i3blocks
 To fix the timezone of a VM you can run
 `$ sudo timedatectl set-timezone <timezone>`
 `$ timedatectl`
+
+## Rust
+You may have to run `rustup component add rust-analyzer` after `rustaceanvim` is set up
+to resolve conflicting lsp errors.
