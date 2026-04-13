@@ -103,7 +103,6 @@ source $ZSH/oh-my-zsh.sh
 
 # Exports
 export EDITOR=nvim
-export CLAUDE_CODE_EFFORT_LEVEL=max
 
 # Aliases
 alias nv="nvim ."
