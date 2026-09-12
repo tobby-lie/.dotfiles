@@ -130,6 +130,15 @@ function gpushup() {
   git push --set-upstream origin "$branch"
 }
 
+# nvm
+export NVM_DIR="$HOME/.nvm"
+if [[ -s "$NVM_DIR/nvm.sh" ]]; then
+  source "$NVM_DIR/nvm.sh"
+fi
+if [[ -s "$NVM_DIR/bash_completion" ]]; then
+  source "$NVM_DIR/bash_completion"
+fi
+
 # Aikido safe-chain: malware checks on npm/pip installs
 if [[ -f "$HOME/.safe-chain/scripts/init-posix.sh" ]]; then
   source "$HOME/.safe-chain/scripts/init-posix.sh"

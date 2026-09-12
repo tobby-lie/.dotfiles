@@ -7,7 +7,6 @@ brew "ripgrep"  # telescope grep
 brew "fd"       # telescope find_files
 brew "fzf"
 brew "lazygit"  # tmux prefix+g popup
-brew "node"     # mason installs several LSP servers through npm
 brew "go"       # mason builds gopls with go
 brew "tfenv"
 brew "jq"

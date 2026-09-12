@@ -176,6 +176,32 @@ setup_tmux() {
     rm -rf "$socket_dir"
 }
 
+install_nvm() {
+    local version="v0.40.7"
+    local sha256="066ce4eaf4d78eaa6410433bc9ba58faaba646157cbbed6109153e6c24c5f8a5"
+    export NVM_DIR="$HOME/.nvm"
+
+    if [ -s "$NVM_DIR/nvm.sh" ]; then
+        log_info "nvm is already installed"
+    else
+        log_info "Installing nvm $version..."
+        local installer
+        installer="$(mktemp)"
+        curl -fsSL "https://raw.githubusercontent.com/nvm-sh/nvm/$version/install.sh" -o "$installer"
+        echo "$sha256  $installer" | shasum -a 256 -c -
+
+        # The installer errors if $NVM_DIR is set but missing. PROFILE=/dev/null
+        # keeps it from appending to the symlinked .zshrc, which already loads nvm
+        mkdir -p "$NVM_DIR"
+        PROFILE=/dev/null bash "$installer"
+        rm -f "$installer"
+    fi
+
+    log_info "Installing the latest Node LTS as the nvm default..."
+    # nvm.sh doesn't work under set -eu, so run it in a plain bash
+    bash -c 'source "$NVM_DIR/nvm.sh" && nvm install --lts && nvm alias default "lts/*"'
+}
+
 install_nvim_plugins() {
     log_info "Installing neovim plugins at the versions pinned in lazy-lock.json..."
     nvim --headless "+Lazy! restore" +qa
@@ -186,6 +212,14 @@ install_safe_chain() {
     local sha256="0ad25efe15d1fa56105157a454d647223e78eb0c53d1f85e3d10afcd722e7bfd"
     local installer
     local zdotdir
+
+    # The installer's own version check misses ~/.safe-chain/bin when it isn't
+    # on PATH yet, so it would re-download every run
+    if "$HOME/.safe-chain/bin/safe-chain" --version 2>/dev/null | grep -q "$version"; then
+        log_info "safe-chain $version is already installed"
+        return
+    fi
+
     installer="$(mktemp)"
     zdotdir="$(mktemp -d)"
 
@@ -208,6 +242,7 @@ main() {
     install_homebrew
     clone_dotfiles
     install_dependencies
+    install_nvm
     link_configs
     install_oh_my_zsh
     install_fonts

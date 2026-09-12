@@ -13,7 +13,7 @@ It installs Homebrew, clones this repo into `~/.config/.dotfiles` and sets every
 What the script does:
 - installs everything in `Brewfile`
 - symlinks `.zshrc`, `nvim`, `tmux/tmux.conf`, `kitty` and `cf` into place, moving whatever was there to `~/.dotfiles-backup/<timestamp>/`
-- installs oh-my-zsh, tpm and the tmux plugins, the nvim plugins pinned in `lazy-lock.json`, and Aikido safe-chain
+- installs oh-my-zsh, tpm and the tmux plugins, the nvim plugins pinned in `lazy-lock.json`, nvm with the latest Node LTS as the default, and Aikido safe-chain
 - copies the `.ttf`/`.otf` fonts from `.fonts` into `~/Library/Fonts`
 
 Mason LSP servers and treesitter parsers still install the first time you open nvim.
