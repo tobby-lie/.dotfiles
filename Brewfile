@@ -8,6 +8,7 @@ brew "fd"       # telescope find_files
 brew "fzf"
 brew "lazygit"  # tmux prefix+g popup
 brew "go"       # mason builds gopls with go
+brew "tree-sitter-cli"  # nvim-treesitter builds parsers with it
 brew "tfenv"
 brew "jq"
 brew "gh"
