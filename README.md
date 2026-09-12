@@ -1,8 +1,27 @@
 # .dotfiles
 
-TODO: Automate the initial install process into a .sh script
+## macOS
 
-^ I started scripting the setup process, the process is basically
+Fresh Mac, one command:
+
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/tobby-lie/.dotfiles/main/install-macos.sh)"
+```
+
+It installs Homebrew, clones this repo into `~/.config/.dotfiles` and sets everything up from there. It asks for your password once because Homebrew needs sudo. If you already have a clone, run `./install-macos.sh` from it instead. Re-running is fine, it skips anything that's already done.
+
+What the script does:
+- installs everything in `Brewfile`
+- symlinks `.zshrc`, `nvim`, `tmux/tmux.conf`, `kitty` and `cf` into place, moving whatever was there to `~/.dotfiles-backup/<timestamp>/`
+- installs oh-my-zsh, tpm and the tmux plugins, the nvim plugins pinned in `lazy-lock.json`, and Aikido safe-chain
+- copies the `.ttf`/`.otf` fonts from `.fonts` into `~/Library/Fonts`
+
+Mason LSP servers and treesitter parsers still install the first time you open nvim.
+
+Machine-specific stuff like work env vars and tokens goes in `~/.zshrc.local`. `.zshrc` sources it when it exists, and it never gets committed.
+
+## Linux
+
 `git clone` the repo into `~/.config` then run `install-<distro>.sh`
 
 # Usage
