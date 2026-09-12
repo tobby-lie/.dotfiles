@@ -104,6 +104,13 @@ source $ZSH/oh-my-zsh.sh
 # Exports
 export EDITOR=nvim
 
+# Homebrew on Apple Silicon (Intel Homebrew is already on PATH in /usr/local)
+if [[ -x /opt/homebrew/bin/brew ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
+export PATH="$HOME/.local/bin:$PATH"
+
 # Aliases
 alias nv="nvim ."
 alias gis="git status"
@@ -122,5 +129,24 @@ function gpushup() {
   branch=${1:-$(git rev-parse --abbrev-ref HEAD)}
   git push --set-upstream origin "$branch"
 }
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+if [[ -s "$NVM_DIR/nvm.sh" ]]; then
+  source "$NVM_DIR/nvm.sh"
+fi
+if [[ -s "$NVM_DIR/bash_completion" ]]; then
+  source "$NVM_DIR/bash_completion"
+fi
+
+# Aikido safe-chain: malware checks on npm/pip installs
+if [[ -f "$HOME/.safe-chain/scripts/init-posix.sh" ]]; then
+  source "$HOME/.safe-chain/scripts/init-posix.sh"
+fi
+
+# Machine-specific config that stays out of the repo (work env vars, tokens)
+if [[ -f "$HOME/.zshrc.local" ]]; then
+  source "$HOME/.zshrc.local"
+fi
 
 
