@@ -92,6 +92,46 @@ install_homebrew() {
     load_brew
 }
 
+compiler_works() {
+    local dir
+    dir="$(mktemp -d)"
+    printf 'int main(void) { return 0; }\n' > "$dir/test.c"
+    if cc "$dir/test.c" -o "$dir/test" >/dev/null 2>&1; then
+        rm -rf "$dir"
+        return 0
+    fi
+    rm -rf "$dir"
+    return 1
+}
+
+# nvim's treesitter parsers are compiled with cc. The Homebrew installer only
+# installs the Command Line Tools when they're missing, so a half-applied
+# update can leave cc unable to link anything with no error until nvim opens
+check_toolchain() {
+    log_info "Checking the C compiler works..."
+    if compiler_works; then
+        return
+    fi
+
+    # softwareupdate can only fix the Command Line Tools, not a full Xcode
+    if [ "$(xcode-select -p 2>/dev/null)" = "/Library/Developer/CommandLineTools" ]; then
+        local label
+        label="$(softwareupdate --list 2>&1 | sed -n 's/^\* Label: //p' | grep '^Command Line Tools' | sort -V | tail -1 || true)"
+        if [ -n "$label" ]; then
+            log_warning "The C compiler can't build anything, installing $label..."
+            # A failed install (offline, blocked by IT) falls through to the error below
+            if sudo softwareupdate --install "$label" && compiler_works; then
+                log_info "The C compiler works now"
+                return
+            fi
+        fi
+    fi
+
+    log_error "The C compiler can't build anything, so nvim's treesitter parsers won't compile"
+    log_error "Install or update the Command Line Tools (System Settings > General > Software Update, or xcode-select --install), then re-run this script"
+    exit 1
+}
+
 clone_dotfiles() {
     # Run from inside a clone: use that clone as-is
     local script_dir=""
@@ -240,6 +280,7 @@ main() {
 
     check_macos
     install_homebrew
+    check_toolchain
     clone_dotfiles
     install_dependencies
     install_nvm

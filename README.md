@@ -11,6 +11,7 @@ Fresh Mac, one command:
 It installs Homebrew, clones this repo into `~/.config/.dotfiles` and sets everything up from there. It asks for your password once because Homebrew needs sudo. If you already have a clone, run `./install-macos.sh` from it instead. Re-running is fine, it skips anything that's already done.
 
 What the script does:
+- checks the C compiler can actually build something, and installs the Command Line Tools update if that's what's broken (nvim's treesitter parsers need it)
 - installs everything in `Brewfile`
 - symlinks `.zshrc`, `nvim`, `tmux/tmux.conf`, `kitty` and `cf` into place, moving whatever was there to `~/.dotfiles-backup/<timestamp>/`
 - installs oh-my-zsh, tpm and the tmux plugins, the nvim plugins pinned in `lazy-lock.json`, nvm with the latest Node LTS as the default, and Aikido safe-chain
