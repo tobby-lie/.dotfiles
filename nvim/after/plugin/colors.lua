@@ -1,4 +1,4 @@
-vim.g.everforest_background = "medium"
+vim.g.everforest_background = "hard"
 
 function ColorMyPencils(color)
 	color = color or "everforest"
