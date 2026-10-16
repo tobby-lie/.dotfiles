@@ -12,7 +12,7 @@ It installs Homebrew, clones this repo into `~/.config/.dotfiles` and sets every
 
 What the script does:
 - checks the C compiler can actually build something, and installs the Command Line Tools update if that's what's broken (nvim's treesitter parsers need it)
-- installs everything in `Brewfile`
+- installs everything in `Brewfile`, including OpenCode and the JetBrains Mono Nerd Font kitty uses. OpenCode's config lives in the private `claude-config` repo, next to Claude Code's
 - symlinks `.zshrc`, `nvim`, `tmux/tmux.conf`, `kitty` and `cf` into place, moving whatever was there to `~/.dotfiles-backup/<timestamp>/`
 - installs oh-my-zsh, tpm and the tmux plugins, the nvim plugins pinned in `lazy-lock.json`, nvm with the latest Node LTS as the default, and Aikido safe-chain
 - copies the `.ttf`/`.otf` fonts from `.fonts` into `~/Library/Fonts`

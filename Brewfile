@@ -12,6 +12,10 @@ brew "tree-sitter-cli"  # nvim-treesitter builds parsers with it
 brew "tfenv"
 brew "jq"
 brew "gh"
+tap "anomalyco/tap"
+brew "anomalyco/tap/opencode-v2"
+
+cask "font-jetbrains-mono-nerd-font"  # kitty font, icons included
 
 # kitty installed outside Homebrew makes the cask install fail on the existing app
 cask "kitty" unless File.exist?("/Applications/kitty.app")
