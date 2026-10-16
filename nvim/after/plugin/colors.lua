@@ -1,5 +1,7 @@
+vim.g.everforest_background = "hard"
+
 function ColorMyPencils(color)
-	color = color or "kanagawa-dragon"
+	color = color or "everforest"
 	vim.cmd.colorscheme(color)
 end
 
