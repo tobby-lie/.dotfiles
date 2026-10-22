@@ -1,9 +1,48 @@
+local sessions_dir = vim.fn.expand("~") .. "/.claude/sessions/"
+
+local function read_session(pid)
+  local path = sessions_dir .. pid .. ".json"
+  if vim.fn.filereadable(path) == 0 then return nil end
+  local ok, data = pcall(vim.json.decode, table.concat(vim.fn.readfile(path), "\n"))
+  if ok and type(data) == "table" then return data end
+end
+
+local function parent_pid(pid)
+  local out = vim.fn.system({ "ps", "-o", "ppid=", "-p", tostring(pid) })
+  return tonumber(vim.trim(out))
+end
+
+local function ancestor_session_id()
+  local pid = vim.uv.os_getppid()
+  while pid and pid > 1 do
+    local data = read_session(pid)
+    if data and data.sessionId then return data.sessionId end
+    pid = parent_pid(pid)
+  end
+end
+
+local function tmux_window_session_id()
+  local pane = vim.env.TMUX_PANE
+  if not pane or pane == "" then return nil end
+  local window = vim.trim(vim.fn.system({ "tmux", "display", "-p", "-t", pane, "#{window_id}" }))
+  local best, best_start = nil, 0
+  for _, path in ipairs(vim.fn.glob(sessions_dir .. "*.json", false, true)) do
+    local data = read_session(vim.fn.fnamemodify(path, ":t:r"))
+    local tmux = data and data.tmux
+    if tmux and tmux:match(":(@%d+)") == window and (data.startedAt or 0) > best_start then
+      best, best_start = data.sessionId, data.startedAt or 0
+    end
+  end
+  return best
+end
+
 local function transcript_path()
   local projects = vim.fn.expand("~") .. "/.claude/projects/"
-  local id = vim.env.CLAUDE_CODE_SESSION_ID
-  if id and id ~= "" then
-    local matches = vim.fn.glob(projects .. "*/" .. id .. ".jsonl", false, true)
-    if matches[1] then return matches[1] end
+  for _, id in ipairs({ ancestor_session_id(), vim.env.CLAUDE_CODE_SESSION_ID, tmux_window_session_id() }) do
+    if id and id ~= "" then
+      local matches = vim.fn.glob(projects .. "*/" .. id .. ".jsonl", false, true)
+      if matches[1] then return matches[1] end
+    end
   end
   local dir = projects .. vim.fn.getcwd():gsub("[^%w]", "-") .. "/"
   local newest, newest_time = nil, 0
