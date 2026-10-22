@@ -1,6 +1,5 @@
 return {
     {'nvim-telescope/telescope.nvim', version = '^0.2', dependencies = {'nvim-lua/plenary.nvim'}},
-    {'rebelot/kanagawa.nvim'},
     {'sainnhe/everforest'},
     {'nvim-treesitter/nvim-treesitter', branch = 'main', lazy = false, build = ':TSUpdate'},
     {'theprimeagen/harpoon'},
