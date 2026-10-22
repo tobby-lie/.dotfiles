@@ -4,6 +4,7 @@ return {
     {'nvim-treesitter/nvim-treesitter', branch = 'main', lazy = false, build = ':TSUpdate'},
     {'mbbill/undotree'},
     {'tpope/vim-fugitive'},
+    {'christoomey/vim-tmux-navigator', lazy = false},
     {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v3.x',
