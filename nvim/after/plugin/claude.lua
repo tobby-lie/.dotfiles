@@ -67,10 +67,10 @@ end
 local function replies()
   local path = transcript_path()
   if not path then return {} end
-  local turns, texts = {}, {}
+  local turns, texts, after_tool = {}, {}, false
   local function close_turn()
     if #texts > 0 then table.insert(turns, table.concat(texts, "\n\n")) end
-    texts = {}
+    texts, after_tool = {}, false
   end
   for line in io.lines(path) do
     local ok, entry = pcall(vim.json.decode, line)
@@ -79,7 +79,10 @@ local function replies()
         close_turn()
       elseif entry.type == "assistant" then
         for _, block in ipairs(entry.message.content or {}) do
-          if block.type == "text" and block.text ~= "" then
+          if block.type == "tool_use" then
+            after_tool = true
+          elseif block.type == "text" and block.text ~= "" then
+            if after_tool then texts, after_tool = {}, false end
             table.insert(texts, block.text)
           end
         end
